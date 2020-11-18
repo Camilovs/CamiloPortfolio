@@ -20,6 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->helper('url');
+		$this->load->library('Recaptcha');
 		$this->load->view('header');
 		$this->load->view('portfolio');
 		$this->load->view('about');
@@ -27,4 +29,25 @@ class Welcome extends CI_Controller {
 		$this->load->view('modal');
 		$this->load->view('footer');
 	}
+	public function validar(){
+		// Load the library
+		$this->load->library('recaptcha');
+
+		// Catch the user's answer
+		$captcha_answer = $this->input->post('g-recaptcha-response');
+
+		// Verify user's answer
+		$response = $this->recaptcha->verifyResponse($captcha_answer);
+
+		// Processing ...
+		if ($response['success']) {
+			$this->load->view('validado');
+		} else {
+			redirect('Crecaptcha');
+			// var_dump($response);
+		}
+	}
+
+
+
 }
