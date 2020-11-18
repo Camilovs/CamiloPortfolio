@@ -13,7 +13,7 @@
 		<div class="row">
 			<div class="col-sm-7 mx-auto">
 				<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-				<form id="contactForm" name="sentMessage" novalidate="novalidate" action="<?php echo base_url();?>/welcome/validar" method="POST">
+				<form id="contactForm" name="sentMessage" novalidate="novalidate" action="<?php echo base_url();?>/welcome/validar">
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2">
 							<label>Nombre</label>
@@ -45,7 +45,7 @@
 									  data-validation-required-message="Please enter a message."></textarea>
 							<p class="help-block text-danger"></p>
 						</div>
-					</div>|
+					</div>
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2">
 							<?php echo $this->recaptcha->render();?>

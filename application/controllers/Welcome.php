@@ -41,10 +41,9 @@ class Welcome extends CI_Controller {
 
 		// Processing ...
 		if ($response['success']) {
-			$this->load->view('validado');
+			echo "Validado";
 		} else {
-			redirect('Crecaptcha');
-			// var_dump($response);
+			echo "No validado";
 		}
 	}
 
